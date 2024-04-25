@@ -7,6 +7,7 @@ from flask import request
 from flask import jsonify
 from flask import redirect
 from flask import url_for
+from config import IMAGE_WIDTH
 
 from src.helpers import (get_all_images,
                          get_image_by_radius,
@@ -22,6 +23,8 @@ app.config['TEMPLATES_AUTO_RELOAD']=True
 
 IMG_DIR = Path(__file__).parent / 'static' / 'data'
 IMG_DIR.mkdir(exist_ok=True)
+
+assert(IMAGE_WIDTH == 50)
 
 
 @app.route('/')
